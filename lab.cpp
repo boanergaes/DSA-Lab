@@ -8,13 +8,29 @@ struct car{
     string model;
 } toyo;
 
-// int add(int a, int b){
-//     return a+b;
-// }
+namespace shotGun {
+    int amunition = 0;
+    void load(){
+        if (amunition < 12){
+            amunition++;
+        }else cout << "FULL\n";
+    }
+    
+    void shoot(){
+        if (amunition > 0) {
+            cout << "BAAAAAAAAM!!!" << endl;
+            amunition--;
+        }else cout << "+_+" << endl; 
+    }
+};
 
-// double add(double a, double b) {
-//     return a+b;
-// }
+int add(int a, int b){
+    return a+b;
+}
+
+double add(double a, double b) {
+    return a+b;
+}
 
 double add(double a, double b, double c){
     return a+b+c;
@@ -22,21 +38,16 @@ double add(double a, double b, double c){
 
 template <typename m>
 m add(m x, m y){
-    return x + y
+    return x + y;
 }
 
 int main(){
-    int a = 2;
-    int b = 5;
 
     cout << add(1, 3) << endl;
     cout << add(1.9, 3.0) << endl;
     cout << add(1.0, 3.0, 6.4) << endl;
 
-    car mus;
-    mus.year = 1969;
-    mus.model = "mustang";
-    mus.color = "black";
+    car mus = {1969, "black", "mustang"};
 
     cout << mus.year << endl;
     cout << mus.model << endl;
@@ -49,6 +60,10 @@ int main(){
     cout << toyo.year << endl;
     cout << toyo.model << endl;
     cout << toyo.color << endl;
+
+    shotGun::shoot();
+    shotGun::load();
+    shotGun::shoot();
     
-    
+    return 0;
 }
