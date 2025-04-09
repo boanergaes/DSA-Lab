@@ -102,6 +102,13 @@ class MyArrayList {
         }
         size--;
     }
+
+    bool contains(int val) const {
+        for (int i = 0; i < size; i++) {
+            if (elements[i] == val) return true;
+        }
+        return false;
+    }
     
 };
 
@@ -125,8 +132,9 @@ int main() {
     n.removeAt(3);
     n.display();
 
-    n.addZero(89);
+    n.addZero(8);
     n.display();
+    cout << n.contains(89) << endl;
 
     return 0;
 }
