@@ -27,21 +27,12 @@ class MyArrayList {
         elements = new int[capa];
     }
 
+    // add a constructor that accepts elements of the dataList as arguements.
+    
     ~MyArrayList() {
         delete[] elements;
     }
-    // template <typename t, typename... type>
-    // MyArrayList(t first, type... args) {
-    //     elements = new int[capa];
-    //     elements[size] = first;
-    //     MyArrayList(args...);
-    //     // for (int i = 0; i < args.size(); i++) {
-    //     //     resize();
-    //     //     elements[size] = args[i];
-    //     //     size++;
-    //     // }
-    // }
-    
+
     //methods of my arraylist
     void push(int elem) {
         resize();
@@ -109,7 +100,14 @@ class MyArrayList {
         }
         return false;
     }
-    
+
+    int first() const {
+        return elements[0];
+    }
+
+    int last() const {
+        return elements[size-1];
+    }
 };
 
 int main() {
@@ -135,6 +133,10 @@ int main() {
     n.addZero(8);
     n.display();
     cout << n.contains(89) << endl;
+    n.push(7);
+
+    cout << "first: " << n.first() << endl;
+    cout << "last: " << n.last() << endl;
 
     return 0;
 }
