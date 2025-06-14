@@ -1,4 +1,5 @@
 #include <vector>
+#include <cmath>
 using namespace std;
 
 class Solution {
@@ -9,8 +10,8 @@ class Solution {
             if (!detonated[j]) {
                 int x = bombs[i][0], y = bombs[i][1], r = bombs[i][2];
                 int p = bombs[j][0], q = bombs[j][1], d = bombs[j][2];
-                int distance_sqr = pow(x-p, 2) + pow(q-y, 2);
-                if (distance_sqr <= r*r) {
+                long distance_sqr = pow(x-p, 2) + pow(q-y, 2);
+                if (distance_sqr <= (long)r*r) {
                     detonated[j] = true;
                     res += 1 + detonate(bombs, detonated, j);
                 }
